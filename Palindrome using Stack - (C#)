@@ -1,0 +1,23 @@
+using System;
+using System.Collections.Generic;
+
+class Program
+{
+    static void Main() {
+        string x = "ababa";
+        
+        Stack<char> stack = new Stack<char>();
+        
+        string y = "";
+        
+        foreach(char item in x){
+            stack.Push(item);
+        }
+        
+        foreach(char items in stack){
+            y += items;
+        }
+        
+        Console.WriteLine(y == x ? $"{x} is Palindrome" : $"{x} is not Palindrome");
+    }
+}
