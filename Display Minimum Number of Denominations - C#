@@ -1,0 +1,33 @@
+/*
+Create a console program in C# 
+that will accept a monetary value and 
+display its minimum number of denominations 
+of Philippine currency.
+*/
+
+using System;
+
+class Program
+{
+    static void Main() {
+        double[] listMoney = {1000,500,200,100,50,20,10,5,1};
+        double money = 3876;
+        int[] qty = {0,0,0,0,0,0,0,0,0};
+        
+        for(int x = 0; x < listMoney.Length; x++){
+            if(money >= listMoney[x]){
+                while (money >= listMoney[x]){
+                    money -= listMoney[x];
+                    qty[x]++;
+                }
+            }
+            else {
+                qty[x] = 0;
+            }
+        }
+        
+        for(int y = 0; y < listMoney.Length; y++){
+            Console.WriteLine(listMoney[y] + ": " + qty[y]);
+        }
+    }
+}
