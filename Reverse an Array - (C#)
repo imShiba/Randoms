@@ -1,0 +1,27 @@
+using System;
+
+class Challenges {
+    public static void Main(string[] args)
+    {
+
+        //Simple Solution
+        int[] list = { 1, 2, 3, 4, 5, 6};
+
+        for (int x = list.Length - 1; x > -1; x--) {
+            Console.Write($"{list[x]}, ");
+        }
+
+        //Stack Solution
+        Stack<int> listStack = new Stack<int>();
+
+        for (int y = 1; y < 7; y++) {
+            listStack.Push(y);
+        }
+
+        Console.WriteLine("\n");
+        foreach (int x in listStack) {
+            Console.Write($"{x}, ");
+        }
+        Console.ReadKey();
+    }
+}
