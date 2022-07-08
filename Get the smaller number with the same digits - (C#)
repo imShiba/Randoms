@@ -1,0 +1,50 @@
+using System;
+
+class Challenges {
+    public static void Main(string[] args)
+    {
+        Console.Write("Insert Value: ");
+        long x = (long)Convert.ToInt64(Console.ReadLine());
+
+        Calcu cal = new Calcu();
+        Console.WriteLine(cal.getLower(x));
+
+        Console.ReadKey();
+    }
+}
+
+class Calcu {
+    public long getLower(long big)
+    {
+        PriorityQueue<long, long> numbers = new PriorityQueue<long, long>();
+        string result = ""; int zero = 0;
+        long original = big;
+
+        while (big > 0) // for inserting
+        {
+            long x = big % 10; // get the last digit
+            long y = big / 10; // get the updated number
+            
+            if (x == 0) {
+                zero += 1;
+            }
+            else
+            {
+                numbers.Enqueue(x, x); // inserting to array the last digit of the long
+            }
+            big = y; // updating the value of big
+        }
+
+        while (numbers.Count > 0) result += numbers.Dequeue(); // inserting to result
+
+        for (int x = 0; x < zero; x++) result = result.Insert(1, "0"); // inserting zero
+
+
+        return original.ToString() == result ? -1 : (long)Convert.ToInt32(result); // return answer
+        /*if (original.ToString() == result) return -1;
+        else
+        {
+            return (long)Convert.ToInt32(result);
+        }*/
+    }
+}
